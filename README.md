@@ -178,7 +178,7 @@ The project uses **Matplotlib** to analyze weather patterns across the collected
 The temperature trend visualization shows how the average temperature changed over the selected period.
 
 <p align="center">
-  <img src="images/temperature.png" alt="30 Day Temperature Trend" width="850">
+  <img src="images/Nanded temperature2.png" alt="30 Day Temperature Trend" width="850">
 </p>
 
 ---
@@ -188,7 +188,7 @@ The temperature trend visualization shows how the average temperature changed ov
 The precipitation visualization shows the amount of precipitation recorded across the 30-day period.
 
 <p align="center">
-  <img src="images/precipitation.png" alt="30 Day Precipitation Trend" width="850">
+  <img src="images/Nanded precipitation.png" alt="30 Day Precipitation Trend" width="850">
 </p>
 
 ---
@@ -228,7 +228,7 @@ The project then compares the historical temperature values with the generated p
 ## 🔮 7-Day Temperature Forecast
 
 <p align="center">
-  <img src="images/forecast.png" alt="7 Day Temperature Forecast" width="850">
+  <img src="images/Nanded Temprature.png" alt="7 Day Temperature Forecast" width="850">
 </p>
 
 The forecast visualization compares:
