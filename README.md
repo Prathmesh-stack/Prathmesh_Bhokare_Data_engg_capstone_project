@@ -177,7 +177,7 @@ The project uses **Matplotlib** to analyze weather patterns across the collected
 
 The temperature trend visualization shows how the average temperature changed over the selected period.
 
-<p align="center"> <img src="images/Nanded%20temprature.png" alt="Nanded Temperature Trend" width="850"> </p>
+<p align="center"> <img src="images/Nanded%20temprature%202.png" alt="Nanded Temperature Trend" width="850"> </p>
 ---
 
 ## 🌧️ Precipitation Analysis
@@ -222,7 +222,7 @@ The project then compares the historical temperature values with the generated p
 
 ## 🔮 7-Day Temperature Forecast
 
-<p align="center"> <img src="images/Nanded%20temprature%202.png" alt="Nanded Temperature Forecast" width="850"> </p>
+<p align="center"> <img src="images/Nanded%20temprature.png" alt="Nanded Temperature Forecast" width="850"> </p>
 
 The forecast visualization compares:
 
