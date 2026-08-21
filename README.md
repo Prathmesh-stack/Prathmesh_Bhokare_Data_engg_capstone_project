@@ -1,4 +1,3 @@
-````markdown
 # 🌦️ Smart Retail Insights with Weather Integration
 
 > An end-to-end **Data Engineering + Analytics + Machine Learning** project that collects historical weather data, stores it in PostgreSQL, visualizes weather trends, and generates a 7-day temperature forecast using Linear Regression.
