@@ -1,158 +1,278 @@
-# 🌦️ Smart Retail Insights with Weather Integration
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-150458)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-F7931E)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C)
+![Open-Meteo](https://img.shields.io/badge/Open--Meteo-Weather%20API-4CAF50)
+![Psycopg2](https://img.shields.io/badge/Psycopg2-PostgreSQL%20Connector-336791)
+![License](https://img.shields.io/badge/License-Educational-orange)
 
-> An end-to-end **Data Engineering + Analytics + Machine Learning** project that collects historical weather data, stores it in PostgreSQL, visualizes weather trends, and generates a 7-day temperature forecast using Linear Regression.
+# 🌦️ Weather Data Engineering & Forecasting Pipeline
 
-<div align="center">
-
-![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-11557C?style=for-the-badge&logo=matplotlib&logoColor=white)
-![Scikit Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![REST API](https://img.shields.io/badge/REST-API-009688?style=for-the-badge)
-
-</div>
+An end-to-end **Data Engineering and Machine Learning project** that extracts historical weather data for **Nanded, Maharashtra**, processes and stores the data in PostgreSQL, generates analytical visualizations, and forecasts temperature for the next 7 days using Linear Regression.
 
 ---
 
-## 📌 Overview
+## 📌 Project Overview
 
-**Smart Retail Insights with Weather Integration** demonstrates a complete data pipeline for collecting, processing, storing, analyzing, visualizing, and forecasting weather data.
+This project demonstrates a complete data pipeline starting from **API-based data ingestion** to **database storage, visualization, and machine learning forecasting**.
 
-The project uses the **Open-Meteo Archive API** to collect historical weather data for **Nanded, Maharashtra**, processes the data using Python, stores it in a PostgreSQL database, and generates analytical visualizations using Matplotlib.
+Historical weather data is collected from the **Open-Meteo Archive API**, processed using Python, stored in PostgreSQL, and analyzed through visualizations. A Linear Regression model is then used as a baseline forecasting approach to estimate temperature for the upcoming 7 days.
 
-A basic **Linear Regression** model is then trained on historical temperature data to generate a **7-day temperature forecast**.
-
----
-
-## 🎯 Project Objectives
-
-- 🌐 Fetch historical weather data from a public REST API.
-- 🐍 Process and transform data using Python.
-- 🗄️ Store structured weather data in PostgreSQL.
-- 📊 Visualize temperature and precipitation trends.
-- 🤖 Apply Linear Regression for basic forecasting.
-- 🔮 Generate temperature predictions for the next 7 days.
-- 🔄 Demonstrate an end-to-end data engineering workflow.
-
----
-
-## 🏗️ Data Pipeline Architecture
+### 🔄 Data Pipeline
 
 ```text
-                ┌─────────────────────────┐
-                │   Open-Meteo Archive    │
-                │           API           │
-                └────────────┬────────────┘
-                             │
-                             ▼
-                ┌─────────────────────────┐
-                │     Data Extraction     │
-                │         Python          │
-                └────────────┬────────────┘
-                             │
-                             ▼
-                ┌─────────────────────────┐
-                │   Data Processing &     │
-                │    Transformation       │
-                │      Pandas / Python    │
-                └────────────┬────────────┘
-                             │
-                             ▼
-                ┌─────────────────────────┐
-                │       PostgreSQL        │
-                │      weather_data       │
-                └────────────┬────────────┘
-                             │
-                    ┌────────┴────────┐
-                    ▼                 ▼
-          ┌─────────────────┐  ┌─────────────────┐
-          │  Visualization  │  │   ML Forecast   │
-          │   Matplotlib    │  │ LinearRegression│
-          └─────────────────┘  └────────┬────────┘
-                                       │
-                                       ▼
-                              ┌─────────────────┐
-                              │  7-Day Forecast │
-                              └─────────────────┘
-````
+Open-Meteo API
+      │
+      ▼
+Data Extraction
+      │
+      ▼
+Data Processing
+      │
+      ▼
+PostgreSQL Database
+      │
+      ├──────────────► Data Visualization
+      │
+      └──────────────► ML Forecasting
+                              │
+                              ▼
+                       7-Day Forecast
+```
 
 ---
 
-## 🛠️ Technology Stack
+## 🚀 Key Features
 
-| Category          | Technology                 |
-| ----------------- | -------------------------- |
-| Programming       | Python                     |
-| Data Source       | Open-Meteo Archive API     |
-| Data Processing   | Pandas                     |
-| Database          | PostgreSQL                 |
-| Visualization     | Matplotlib                 |
-| Machine Learning  | Scikit-learn               |
-| ML Algorithm      | Linear Regression          |
-| API Communication | REST API                   |
-| Development       | VS Code / Jupyter Notebook |
+### 🌐 Data Ingestion
+
+* Fetch historical weather data using the Open-Meteo Archive API
+* Retrieve approximately 30 days of weather observations
+* Collect daily maximum temperature, minimum temperature, and precipitation
+* Process API responses using Python
+
+### 🗄️ Data Engineering
+
+* Transform raw API data into structured records
+* Calculate daily average temperature
+* Handle missing temperature values
+* Store processed data in PostgreSQL
+* Use Python and Psycopg2 for database connectivity
+
+### 📊 Data Visualization
+
+* Historical average temperature analysis
+* Precipitation trend visualization
+* Matplotlib-based analytical charts
+* Historical data visualization for Nanded
+
+### 🤖 Machine Learning
+
+* Linear Regression-based temperature forecasting
+* Convert historical dates into numerical values
+* Train the model using historical temperature observations
+* Generate predictions for the next 7 days
+* Visualize historical and forecasted temperatures
+
+---
+
+## 🏗️ System Architecture
+
+```text
+                 ┌─────────────────────────┐
+                 │   Open-Meteo API        │
+                 │ Historical Weather Data │
+                 └────────────┬────────────┘
+                              │
+                              ▼
+                 ┌─────────────────────────┐
+                 │   Python Extraction     │
+                 │       Requests          │
+                 └────────────┬────────────┘
+                              │
+                              ▼
+                 ┌─────────────────────────┐
+                 │    Data Processing      │
+                 │                         │
+                 │ • Temperature Average   │
+                 │ • Date Processing       │
+                 │ • Missing Value Check   │
+                 └────────────┬────────────┘
+                              │
+                              ▼
+                 ┌─────────────────────────┐
+                 │      PostgreSQL         │
+                 │     weather_data        │
+                 └────────────┬────────────┘
+                              │
+                    ┌─────────┴─────────┐
+                    │                   │
+                    ▼                   ▼
+          ┌──────────────────┐  ┌──────────────────┐
+          │  Visualization   │  │ ML Forecasting   │
+          │    Matplotlib    │  │ Linear Regression│
+          └──────────────────┘  └────────┬─────────┘
+                                         │
+                                         ▼
+                                ┌─────────────────┐
+                                │  7-Day Forecast │
+                                └─────────────────┘
+```
+
+---
+
+## 🛠️ Tech Stack
+
+### Programming & Data Processing
+
+* Python 3.11
+* Pandas
+* Requests
+
+### Database
+
+* PostgreSQL
+* Psycopg2
+
+### Machine Learning
+
+* Scikit-learn
+* Linear Regression
+
+### Visualization
+
+* Matplotlib
+
+### Data Source
+
+* Open-Meteo Archive API
+
+### Development
+
+* VS Code
+* Jupyter Notebook
+* Git & GitHub
 
 ---
 
 ## 📂 Project Structure
 
 ```text
-Smart-Retail-Insights/
+Prathmesh_Bhokare_Data_engg_capstone_project/
 │
 ├── fetch_history.py
-├── README.md
-├── requirements.txt
+├── forcast.py
+├── visulise.py
 │
 ├── images/
-│   ├── temperature.png
-│   ├── precipitation.png
-│   └── forecast.png
+│   ├── Nanded Perception.png
+│   ├── Nanded temprature.png
+│   └── Nanded temprature 2.png
 │
-└── ...
+├── Prathmesh_bhokare_41_capstone_project_DE.pdf
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-# 🔄 Data Engineering Workflow
+## 🗄️ Database Design
 
-## 1️⃣ Data Extraction
+The project uses PostgreSQL to persist the processed weather observations.
 
-Historical weather data is collected using the **Open-Meteo Archive API**.
+### `weather_data`
 
-The project retrieves approximately **30 days of historical weather data for Nanded**.
+| Column        | Type        | Description                           |
+| ------------- | ----------- | ------------------------------------- |
+| `id`          | SERIAL      | Primary key                           |
+| `city`        | VARCHAR(50) | City name                             |
+| `temperature` | FLOAT       | Calculated average temperature        |
+| `humidity`    | FLOAT       | Currently used to store precipitation |
+| `wind_speed`  | FLOAT       | Currently not populated               |
+| `datetime`    | DATE        | Observation date                      |
 
-The extraction process is implemented in:
+### Temperature Transformation
+
+The average daily temperature is calculated using:
 
 ```text
-fetch_history.py
+Average Temperature =
+(Maximum Temperature + Minimum Temperature) / 2
 ```
 
-The collected dataset contains weather attributes such as:
-
-* 🌡️ Temperature
-* 💧 Humidity
-* 💨 Wind Speed
-* 🌧️ Precipitation
-* 📅 Date
+> **Implementation Note:** The current database schema uses a column named `humidity` to store precipitation values. This can be renamed to `precipitation` in a future cleanup of the schema and scripts.
 
 ---
 
-## 2️⃣ Data Storage
+## 📡 Data Source
 
-The processed weather data is stored in a PostgreSQL database named:
+### Open-Meteo Archive API
+
+The project uses historical weather data for **Nanded, Maharashtra**.
+
+```text
+Latitude  : 19.1485
+Longitude : 77.3191
+```
+
+The pipeline retrieves:
+
+* Daily maximum temperature
+* Daily minimum temperature
+* Daily precipitation
+
+The extracted data is then transformed before being inserted into PostgreSQL.
+
+---
+
+## ⚙️ Installation
+
+### Clone Repository
+
+```bash
+git clone https://github.com/Prathmesh-stack/Prathmesh_Bhokare_Data_engg_capstone_project.git
+
+cd Prathmesh_Bhokare_Data_engg_capstone_project
+```
+
+### Create Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### Activate Environment
+
+#### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+#### Linux / macOS
+
+```bash
+source venv/bin/activate
+```
+
+### Install Dependencies
+
+```bash
+pip install requests psycopg2 pandas matplotlib scikit-learn
+```
+
+---
+
+## 🗄️ PostgreSQL Configuration
+
+Create a PostgreSQL database:
 
 ```text
 smart_retail
 ```
 
-The primary table is:
-
-```text
-weather_data
-```
-
-### Database Schema
+Create the required table:
 
 ```sql
 CREATE TABLE weather_data (
@@ -165,252 +285,149 @@ CREATE TABLE weather_data (
 );
 ```
 
-This provides a structured relational layer for querying and analyzing the collected weather data.
+Update the PostgreSQL connection settings in the Python scripts before running the project.
+
+> 🔐 **Security Recommendation:** Database credentials should be stored using environment variables rather than being hard-coded in source files.
 
 ---
 
-# 📊 Data Visualization
+## ▶️ Running the Project
 
-The project uses **Matplotlib** to analyze weather patterns across the collected 30-day dataset.
-
-## 🌡️ Temperature Trend
-
-The temperature trend visualization shows how the average temperature changed over the selected period.
-
-<p align="center"> <img src="images/Nanded%20temprature%202.png" alt="Nanded Temperature Trend" width="850"> </p>
----
-
-## 🌧️ Precipitation Analysis
-
-The precipitation visualization shows the amount of precipitation recorded across the 30-day period.
-
-<p align="center"> <img src="images/Nanded%20Perception.png" alt="Nanded Precipitation Analysis" width="850"> </p>
-
----
-
-# 🤖 Machine Learning Forecast
-
-A **Linear Regression** model from Scikit-learn is used for basic temperature forecasting.
-
-### Model Workflow
-
-```text
-Historical Temperature Data
-            ↓
-       Data Preparation
-            ↓
-     Feature Construction
-            ↓
-     Linear Regression
-            ↓
-       Model Training
-            ↓
-     Future Date Generation
-            ↓
-      7-Day Prediction
-            ↓
-      Visualization
-```
-
-The model is trained using the historical temperature observations and generates predicted temperatures for the following **7 days**.
-
-The project then compares the historical temperature values with the generated predictions.
-
-> ⚠️ **Note:** Linear Regression is used here as a basic machine-learning forecasting demonstration. It is not intended to replace production-grade weather forecasting systems.
-
----
-
-## 🔮 7-Day Temperature Forecast
-
-<p align="center"> <img src="images/Nanded%20temprature.png" alt="Nanded Temperature Forecast" width="850"> </p>
-
-The forecast visualization compares:
-
-* 🔵 Actual temperature observations
-* 🔴 Predicted temperature values
-
----
-
-# 📈 Results
-
-The project successfully demonstrates a complete workflow from **data ingestion to predictive analysis**.
-
-### Key Results
-
-✅ Historical weather data retrieved through a public API.
-
-✅ 30-day weather dataset collected for Nanded.
-
-✅ Structured data stored in PostgreSQL.
-
-✅ Temperature trends visualized using Matplotlib.
-
-✅ Precipitation trends analyzed through visualization.
-
-✅ Linear Regression model trained on historical temperature data.
-
-✅ 7-day temperature forecast generated.
-
----
-
-# ⚙️ Installation & Setup
-
-## 1. Clone the Repository
-
-```bash
-git clone https://github.com/Prathmesh-stack/Prathmesh_Bhokare_Data_engg_capstone_project.git
-```
-
-```bash
-cd Prathmesh_Bhokare_Data_engg_capstone_project
-```
-
----
-
-## 2. Create a Virtual Environment
-
-### Windows
-
-```bash
-python -m venv venv
-venv\Scripts\activate
-```
-
-### Linux / macOS
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
-
----
-
-## 3. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-If `requirements.txt` is not available:
-
-```bash
-pip install pandas matplotlib scikit-learn requests psycopg2-binary
-```
-
----
-
-# 🗄️ PostgreSQL Configuration
-
-Create the database:
-
-```sql
-CREATE DATABASE smart_retail;
-```
-
-Connect to the database and create the table:
-
-```sql
-CREATE TABLE weather_data (
-    id SERIAL PRIMARY KEY,
-    city VARCHAR(50),
-    temperature FLOAT,
-    humidity FLOAT,
-    wind_speed FLOAT,
-    datetime DATE
-);
-```
-
-Update your PostgreSQL connection credentials in the Python configuration before running the pipeline.
-
----
-
-# ▶️ Running the Project
-
-Run the historical data extraction script:
+### 1. Fetch Historical Weather Data
 
 ```bash
 python fetch_history.py
 ```
 
-The script retrieves the weather data and inserts the processed records into PostgreSQL.
+This script:
 
-After the data has been loaded, execute the visualization and forecasting scripts available in the repository.
-
----
-
-# 💡 Key Data Engineering Concepts
-
-This project demonstrates practical implementation of:
-
-* 🔹 API-based data ingestion
-* 🔹 Data extraction
-* 🔹 Data transformation
-* 🔹 Data validation
-* 🔹 Relational database storage
-* 🔹 PostgreSQL schema design
-* 🔹 Python data processing
-* 🔹 Data visualization
-* 🔹 Machine learning integration
-* 🔹 Basic predictive analytics
-* 🔹 End-to-end pipeline development
+* Connects to the Open-Meteo API
+* Retrieves historical weather observations
+* Calculates average temperature
+* Stores processed records in PostgreSQL
 
 ---
 
-# 🚀 Future Improvements
+### 2. Generate Visualizations
 
-The project can be extended into a more robust production-oriented data platform.
+```bash
+python visulise.py
+```
 
-### Planned Enhancements
-
-* ⏰ Automate daily weather data ingestion.
-* 🔄 Implement incremental data loading.
-* 🧹 Add stronger data validation and cleaning.
-* 📋 Add pipeline logging and monitoring.
-* 🌍 Support multiple cities.
-* 📊 Build an interactive dashboard using Streamlit or Power BI.
-* 🤖 Experiment with advanced time-series forecasting models.
-* 🐳 Containerize the pipeline using Docker.
-* ☁️ Deploy the data pipeline to a cloud platform.
-* 🔐 Improve database credential management using environment variables.
+This generates the project's historical weather visualizations.
 
 ---
 
-# 📚 Learning Outcomes
+### 3. Generate Temperature Forecast
+
+```bash
+python forcast.py
+```
+
+This trains the Linear Regression model and generates a **7-day temperature forecast**.
+
+---
+
+# 📸 Project Screenshots
+
+## 🌧️ Weather / Precipitation Analysis
+
+<p align="center">   <img src="images/Nanded%20Perception.png" alt="Nanded Weather Precipitation Analysis" width="900"> </p>
+
+---
+
+## 🌡️ Historical Temperature Analysis
+
+<p align="center">   <img src="images/Nanded%20temprature.png" alt="Nanded Historical Temperature Analysis" width="900"> </p>
+
+---
+
+## 🔮 Temperature Forecast
+
+<p align="center">   <img src="images/Nanded%20temprature%202.png" alt="Nanded Temperature Forecast" width="900"> </p>
+
+---
+
+## 🤖 Machine Learning Workflow
+
+The forecasting component follows the workflow:
+
+```text
+Historical Temperature Data
+            │
+            ▼
+      Date Conversion
+            │
+            ▼
+   Numerical Date Features
+            │
+            ▼
+   Linear Regression Model
+            │
+            ▼
+      Future Dates
+            │
+            ▼
+   7-Day Temperature
+       Predictions
+```
+
+### Model
+
+The project uses:
+
+```python
+from sklearn.linear_model import LinearRegression
+```
+
+The model learns a simple relationship between historical dates and average temperature and uses that relationship to generate future predictions.
+
+> **Note:** Linear Regression is used as a baseline forecasting model for demonstrating machine learning integration within the pipeline. It is not intended to be a production-grade meteorological forecasting model.
+
+---
+
+## 🧠 Learning Outcomes
 
 Through this project, I gained practical experience in:
 
-* Working with REST APIs and external data sources.
-* Building Python-based data ingestion workflows.
-* Designing relational database schemas.
-* Working with PostgreSQL.
-* Processing structured datasets using Pandas.
-* Creating analytical visualizations.
-* Applying machine learning to real-world datasets.
-* Building an end-to-end data pipeline.
+* REST API integration
+* Data extraction and ingestion
+* Data transformation using Python
+* PostgreSQL database integration
+* Relational database design
+* Data visualization with Matplotlib
+* Machine Learning with Scikit-learn
+* Basic predictive analytics
+* Building an end-to-end data pipeline
+* Connecting data engineering workflows with machine learning
 
 ---
 
-# 👨‍💻 Author
+## 🔮 Future Enhancements
+
+* Automated daily weather data ingestion
+* Incremental data loading
+* Improved data validation
+* Logging and error handling
+* Support for multiple cities
+* Interactive dashboard using Streamlit or Power BI
+* Advanced time-series forecasting models
+* Docker containerization
+* Cloud deployment
+* Environment-variable based credential management
+
+---
+
+## 👨‍💻 Author
 
 ### Prathmesh Bhagwat Bhokare
 
-**B.Tech — Computer Science & Engineering**
-**Artificial Intelligence & Edge Computing**
-
-[![GitHub](https://img.shields.io/badge/GitHub-Prathmesh--stack-181717?style=for-the-badge\&logo=github\&logoColor=white)](https://github.com/Prathmesh-stack)
-
----
-
-## ⭐ Repository
-
-If you find this project useful or interesting, consider giving the repository a ⭐.
-
-**Repository:**
-https://github.com/Prathmesh-stack/Prathmesh_Bhokare_Data_engg_capstone_project
+**B.Tech Computer Science & Engineering**
+**AI & Edge Computing**
+**MIT ADT University**
 
 ---
 
-<p align="center">
-  <b>Built with Python • PostgreSQL • APIs • Data Engineering • Machine Learning</b>
-</p>
-```
+## 📜 License
+
+This project is developed for **educational and academic purposes**.
